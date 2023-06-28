@@ -59,8 +59,7 @@ class UserOptionsClass {
 
     if (!this.options.openAIKey) throw new Error('openAIKey is not set');
 
-    if (process.env.DEBUG)
-      console.log(`openAI key: "${this.options.openAIKey}"`);
+    if (process.env.DEBUG) console.log('openAI key: [set]');
 
     return this.options.openAIKey;
   }
@@ -76,10 +75,10 @@ class UserOptionsClass {
   }
 
   get openAISendByProxy(): boolean {
-    return (
+    return Boolean(
       this.options.openAIProxyUrl &&
-      this.openAISessionToken &&
-      this.openAISessionToken !== 'undefined'
+        this.openAISessionToken &&
+        this.openAISessionToken !== 'undefined',
     );
   }
 
@@ -207,8 +206,7 @@ class UserOptionsClass {
     const envUserOptions = this.convertProcessEnvToUserOptions(process.env);
 
     if (process.env.DEBUG) {
-      console.log('envUserOptions: ', envUserOptions);
-      console.log('userOptions: ', userOptions);
+      console.log('loaded user options (secrets redacted)');
     }
 
     this.options = Object.assign(
