@@ -7,7 +7,7 @@ import ModifyCLI from './utilities/modifier';
 import ReadFiles from './utilities/reader';
 import { HermesTypeEnum, IUserOptions, ReadTypeEnum } from './utilities/types';
 
-const runMap: Record<HermesTypeEnum, () => void> = {
+const runMap: Record<HermesTypeEnum, () => Promise<void>> = {
   [HermesTypeEnum.Test]: async () => {
     const testFilePaths = new ReadFiles();
     const files = testFilePaths.getFileResults();
@@ -51,20 +51,20 @@ const runMap: Record<HermesTypeEnum, () => void> = {
   },
 };
 
-export function main(options?: IUserOptions) {
+export async function main(options?: IUserOptions) {
   userOptions.init(options);
   const type = userOptions.hermesType;
 
   if (!runMap[type]) throw new Error('Invalid hermesType: ' + type);
 
   if (userOptions.options.debug) {
-    console.log(
-      'Running hermes with options: ',
-      JSON.stringify(userOptions.options),
-    );
+    console.log('Running hermes:', {
+      type,
+      model: userOptions.options.openAIModel,
+    });
   }
 
-  runMap[type]();
+  await runMap[type]();
 }
 
 export default main;
