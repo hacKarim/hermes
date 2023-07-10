@@ -1,8 +1,8 @@
 {
   "name": "hermes",
   "version": "0.0.6",
-  "description": "",
-  "main": "lib/index.js",
+  "description": "AI-powered CLI for code review, test generation, scaffolding and i18n translation using the OpenAI API.",
+  "main": "./build/index.js",
   "type": "module",
   "source": "./src/index.ts",
   "types": "./build/index.d.ts",
@@ -24,7 +24,8 @@
     "prepare": "husky install",
     "prepublishOnly": "run-s test",
     "format": "prettier --write ./src",
-    "test": "jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "files": [
     "build",
@@ -47,8 +48,7 @@
     "dotenv": "^16.0.3",
     "inquirer": "^9.1.5",
     "isomorphic-fetch": "^3.0.0",
-    "ora": "^5.4.1",
-    "run-s": "^0.0.0"
+    "ora": "^5.4.1"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -65,9 +65,6 @@
   ],
   "devDependencies": {
     "@jest/types": "^29.6.3",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^14.0.0",
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/jest": "^29.5.5",
     "@types/node": "^18.15.10",
     "cpy-cli": "^2.0.0",
