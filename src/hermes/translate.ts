@@ -24,7 +24,7 @@ class HermesTranslate extends HermesBase {
   public async run(fileResult: IReadFileResult): Promise<string> {
     this.openai.resetParentMessage();
     const message = await this.openai.run(fileResult);
-    if (!message?.length) return;
+    if (!message?.length) return '';
 
     const extractCode = message.map((m) => getAllCodeBlock(m)).join('\n');
     this.writeMessageToFile(fileResult, extractCode);
