@@ -2,7 +2,7 @@ import fs from 'fs';
 import inquirer from 'inquirer';
 import ora from 'ora';
 import { HermesModify } from 'src/hermes';
-import { IReadFileResult } from 'src/types';
+import { IReadFileResult } from 'src/utilities/types';
 import { userOptions } from 'src/utilities/constant';
 import getConflictResult from 'src/utilities/writer/write-conflict';
 
@@ -71,7 +71,7 @@ class ModifyCLI {
       `Please modify previous code by following requirements: ${description}`,
     ];
     const message = await this.hermes.run({
-      ...this.readFileResult,
+      ...fileResult,
       prompts: [prompts.join('\n')],
     });
     if (!message?.length) {
