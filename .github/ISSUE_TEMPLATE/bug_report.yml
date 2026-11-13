@@ -1,0 +1,42 @@
+name: Bug report
+description: Something the CLI does that it should not
+labels: [bug]
+body:
+  - type: dropdown
+    id: command
+    attributes:
+      label: Which command
+      options:
+        - review
+        - test
+        - create
+        - modify
+        - translate
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What you ran, and what happened
+      description: Include the command line, with the key redacted.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node version
+    validations:
+      required: true
+  - type: checkboxes
+    id: model
+    attributes:
+      label: Before you file
+      options:
+        - label: This is a bug in the tool, not a complaint about what the model wrote.
+          required: true

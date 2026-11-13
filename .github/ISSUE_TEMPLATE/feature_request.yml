@@ -1,0 +1,22 @@
+name: Feature request
+description: A chore the CLI should be able to do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: chore
+    attributes:
+      label: The chore you keep doing by hand
+    validations:
+      required: true
+  - type: textarea
+    id: shape
+    attributes:
+      label: What the command would look like
+      render: shell
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This is a command, not a config server, a plugin system or a web interface.
+          required: true
