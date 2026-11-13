@@ -50,21 +50,21 @@ READ_FILE_EXTENSIONS=.ts,.tsx,.js,.jsx
 Every setting is an environment variable. These are all of them, as shipped in
 `.env.example`:
 
-| Variable | Default | What it does |
-| --- | --- | --- |
-| `OPENAI_API_KEY` | — | Required. Your key from the OpenAI dashboard. |
-| `OPENAI_MODEL` | unset | Model to call. Leave unset to use the client default. |
-| `OPENAI_MAX_TOKENS` | `2048` | Ceiling on the response length. |
-| `OPENAI_SESSION_TOKEN` | unset | Session token, as an alternative to an API key. |
-| `OPENAI_PROXY_URL` | unset | Route API calls through a proxy. |
-| `READ_TYPE` | `git` | `git` reads staged changes, `dir` reads a directory. |
-| `READ_GIT_STATUS` | `A,R,M` | Which staged statuses to pick up: added, renamed, modified. |
-| `READ_FILES_ROOT_NAME` | `example` | Directory to read when `READ_TYPE=dir`. |
-| `READ_FILE_EXTENSIONS` | `.ts,.tsx,.js,.jsx` | Extensions considered source files. |
-| `TEST_FILE_TYPE` | `test` | Infix for generated test files, as in `name.test.ts`. |
-| `TEST_FILE_DIR_NAME` | `__test__` | Directory generated tests are written to. |
-| `TRANSLATE` | `fr,es` | Target locales for `hermes translate`. |
-| `REVIEW_REPORT_WEBHOOK` | unset | If set, `hermes review` POSTs its report here. |
+| Variable                | Default             | What it does                                                |
+| ----------------------- | ------------------- | ----------------------------------------------------------- |
+| `OPENAI_API_KEY`        | —                   | Required. Your key from the OpenAI dashboard.               |
+| `OPENAI_MODEL`          | unset               | Model to call. Leave unset to use the client default.       |
+| `OPENAI_MAX_TOKENS`     | `2048`              | Ceiling on the response length.                             |
+| `OPENAI_SESSION_TOKEN`  | unset               | Session token, as an alternative to an API key.             |
+| `OPENAI_PROXY_URL`      | unset               | Route API calls through a proxy.                            |
+| `READ_TYPE`             | `git`               | `git` reads staged changes, `dir` reads a directory.        |
+| `READ_GIT_STATUS`       | `A,R,M`             | Which staged statuses to pick up: added, renamed, modified. |
+| `READ_FILES_ROOT_NAME`  | `example`           | Directory to read when `READ_TYPE=dir`.                     |
+| `READ_FILE_EXTENSIONS`  | `.ts,.tsx,.js,.jsx` | Extensions considered source files.                         |
+| `TEST_FILE_TYPE`        | `test`              | Infix for generated test files, as in `name.test.ts`.       |
+| `TEST_FILE_DIR_NAME`    | `__test__`          | Directory generated tests are written to.                   |
+| `TRANSLATE`             | `fr,es`             | Target locales for `hermes translate`.                      |
+| `REVIEW_REPORT_WEBHOOK` | unset               | If set, `hermes review` POSTs its report here.              |
 
 ### Custom prompts
 
